@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h4>create gallery</h4>
+        <h4>single gallery</h4>
     </div>
 </template>
 
 <script>
     export default {
-        name: "CreateGallery"
+        name: "SingleGallery"
     }
 </script>
 

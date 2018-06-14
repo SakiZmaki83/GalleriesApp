@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">All galleries<span class="sr-only">(current)</span></a>
+              <router-link class="nav-item nav-link" :to="{ name: 'galleries'}">All galleries</router-link>
             </li>
             <li class="nav-item">
              <router-link class="nav-item nav-link" :to="{ name: 'login'}">Login</router-link>

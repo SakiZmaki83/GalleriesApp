@@ -4,7 +4,7 @@
 
             <h3> Log in page </h3>
 
-        <form @submit.prevent="login()">
+        <form @submit.prevent="login">
 
                 <div class="form-group row">
 
@@ -39,16 +39,23 @@
 
 <script>
 
-    export default {
-        name: "Login",
-
-        data(){
-            return{
-                email: '',
-                password: ''
-            }
-        },
-    }
+import { authService } from '../services/Auth'
+	export default {
+		data() {
+			return {
+				email: '',
+				password: ''
+			}
+		},
+		methods: {
+			login(){
+				authService.login(this.email, this.password)
+				.then(()=>{
+				this.$router.push({ name: 'galleries'})
+				})
+			}
+		}
+	}
 
 </script>
 

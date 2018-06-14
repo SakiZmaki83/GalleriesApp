@@ -1,27 +1,29 @@
 import axios from 'axios'
 
-export default class Auth {
-    constructor() {
-        axios.defaults.baseURL = 'http://localhost:8000/api/'
-    }
+export default class AuthService {
+  login(email, password) {
+    return axios.post('http://localhost:8000/api/login', {
+      email, password
+    }).then(data => {
+      window.localStorage.setItem('loginToken', data.data.token)
+      this.setAxiosDefaultAuthorizationHeader()
+    })
+  }
 
-    login (email,password) {
-        return axios.post(`login`,{ email,password})
-            .then(response => {
+  setAxiosDefaultAuthorizationHeader() {
+    const TOKEN = window.localStorage.getItem('loginToken')
+    axios.defaults.headers.common['Authorization'] = `Bearer ${TOKEN}`
+  }
 
+  logout() {
+    window.localStorage.removeItem('loginToken')
+    delete axios.defaults.headers.common['Authorization']
+  }
 
-                window.localStorage.setItem('loginToken',response.data.token)
-                this.setAxiosDefaultAuthorizationHeader()
-
-
-
-            })
-
-
-    }
-
-
+  isAuthenticated() {
+    return !!window.localStorage.getItem('loginToken')
+  }
 }
 
+export const authService = new AuthService()
 
-export const auth = new Auth()

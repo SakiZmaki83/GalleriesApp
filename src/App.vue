@@ -7,11 +7,17 @@
 
 <script>
 import NavBar from './components/NavBar.vue'
+import Login from './pages/Login.vue'
+import Register from './pages/Register.vue'
+import GalleriesApp from './pages/GalleriesApp.vue'
 
 export default {
   name: 'app',
   components: {
-    NavBar
+    NavBar,
+    Login,
+    Register,
+    GalleriesApp
   }
 }
 </script>
