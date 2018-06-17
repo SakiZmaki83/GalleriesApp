@@ -10,6 +10,7 @@ import NavBar from './components/NavBar.vue'
 import Login from './pages/Login.vue'
 import Register from './pages/Register.vue'
 import GalleriesApp from './pages/GalleriesApp.vue'
+import SingleGallery from './pages/SingleGallery.vue'
 
 export default {
   name: 'app',
@@ -17,7 +18,9 @@ export default {
     NavBar,
     Login,
     Register,
-    GalleriesApp
+    GalleriesApp,
+    SingleGallery
+
   }
 }
 </script>

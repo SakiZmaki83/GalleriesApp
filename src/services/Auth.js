@@ -23,7 +23,7 @@ export default class AuthService {
   isAuthenticated() {
     return !!window.localStorage.getItem('loginToken')
   }
+  
 }
 
 export const authService = new AuthService()
-

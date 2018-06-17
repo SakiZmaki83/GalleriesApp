@@ -24,6 +24,32 @@ export default class Galleries {
   get (id) {
     return axios.get(`galleries/${id}`)
   }
+  getSingleUserGalleries(){
+
+    const TOKENUSER = `${window.localStorage.getItem('user')}`
+
+    return axios.get(`my-galleries/${TOKENUSER}`)
+
 }
+
+addGallery(name,inputs,description){
+
+    const USERID = `${window.localStorage.getItem('user')}`
+
+    return axios.post('galleries',{
+        name,
+        inputs,
+        description,
+        USERID
+
+
+    })
+
+}
+
+
+}
+
+
 
 export const galleries = new Galleries()
